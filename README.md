@@ -60,3 +60,19 @@ docker run -p 3000:3000 compliance-app
     * This ensures data isolation and prevents cross-client task leakage.
 * **Persistent State:** All task updates (Status) are synced in real-time to the Supabase PostgreSQL layer.
 
+## 🚀 Key Features
+- **Portfolio Overview:** Searchable home dashboard with real-time stats.
+- **Task Ledger:** Comprehensive task tracking with filtering.
+
+### Preview
+![Dashboard](./public/1.png)
+*The main dashboard showing client entities and critical alerts.*
+
+![Task Management](./public/2.png)
+*Detailed task view with overdue logic and status toggles for client 1.*
+
+![Task Management](./public/3.png)
+*Detailed task view with overdue logic and status toggles for client 2.*
+
+
+
