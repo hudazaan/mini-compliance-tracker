@@ -20,8 +20,8 @@ A high-performance, dark-themed dashboard built to manage regulatory compliance 
 
 ### 1. Clone & Install
 ```bash
-git clone <your-repo-url>
-cd https://github.com/hudazaan/mini-compliance-tracker.git
+git https://github.com/hudazaan/mini-compliance-tracker.git
+cd mini-compliance-tracker.git
 npm install
 ```
 
