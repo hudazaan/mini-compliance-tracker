@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Compliance Tracker | LedgerCFO Assignment
 
-## Getting Started
+A high-performance, dark-themed dashboard built to manage regulatory compliance tasks across a global portfolio of clients. Developed with **Next.js**, **Tailwind CSS**, and **Supabase**.
 
-First, run the development server:
+## 🚀 Core Features
+- **Portfolio Overview:** Searchable home dashboard with real-time stats (Active Clients vs. Critical Alerts).
+- **Relational Task Management:** Deep-link into specific client entities (e.g., Acme Corp, Global Tech).
+- **Dynamic Overdue Logic:** Automated flagging of "Pending" tasks that have passed their due date with high-visibility warnings.
+- **Filtering:** Filter tasks by **Status** (Pending/Completed/All). 
+- **Soft-Dark UI:** A professional "Zinc" color palette designed for low-eye-strain financial monitoring.
 
+## 🛠️ Tech Stack
+- **Framework:** Next.js (App Router)
+- **Database:** Supabase (PostgreSQL)
+- **Styling:** Tailwind CSS
+- **Deployment:** Vercel
+- **Containerization:** Docker
+
+## 📦 Installation & Setup
+
+### 1. Clone & Install
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <your-repo-url>
+cd https://github.com/hudazaan/mini-compliance-tracker.git
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Environment Variables
+Create a .env.local file in the root directory:
+```bash
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Run Development Server
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🐳 Docker Support
 
-## Learn More
+To run the application in a isolated container:
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Build the image:
+```bash
+docker build -t compliance-app .
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. Run the container:
+```bash
+docker run -p 3000:3000 compliance-app
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ⚖️ Compliance Business Logic
 
-## Deploy on Vercel
+* **Overdue Detection:** A task is visually flagged with a warning if:
+    * `status === 'Pending'`
+    * `due_date` is earlier than the current date (`new Date()`).
+* **Relational Integrity:** * Tasks are strictly linked to Clients via a `client_id` (UUID).
+    * This ensures data isolation and prevents cross-client task leakage.
+* **Persistent State:** All task updates (Status) are synced in real-time to the Supabase PostgreSQL layer.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
