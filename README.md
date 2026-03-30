@@ -1,4 +1,4 @@
-# Compliance Tracker | LedgerCFO Assignment
+# Compliance Tracker 
 
 A high-performance, dark-themed dashboard built to manage regulatory compliance tasks across a global portfolio of clients. Developed with **Next.js**, **Tailwind CSS**, and **Supabase**.
 
